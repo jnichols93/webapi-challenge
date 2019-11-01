@@ -1,19 +1,29 @@
 const express = require('express');
-const helmet = require('helmet');
-const server = express();
-const actionsRouter = require('./routers/action-router');
-const projectsRouter = require('./routers/projectRouter');
 
-function logger(req, res, next) {
-    console.log(`[${new Date().toISOString()}] ${req.method} to ${req.url}`);
-    next();
+const server = express();
+
+server.use(express.json());
+
+server.get('/', (req, res) =>{
+  res.json(`<h2>Look what I made!</h2>`)
+});
+
+const projectRouter = require('./routers/projectRouter');
+const actionRouter = require('./routers/action-router');
+
+
+
+function logger(req, res, next){
+  console.log(`${req.method} made on ${req.url}`);
+  next();
 };
 
-server.use(helmet());
-server.use(express.json());
 server.use(logger);
 
-server.use('/api/action', actionsRouter);
-server.use('/api/project', projectsRouter);
+
+server.use('/api/projects', projectRouter);
+server.use('/api/actions', actionRouter);
+
+
 
 module.exports = server;
