@@ -12,13 +12,17 @@ I need this code, just don't know where, perhaps should make some middleware, do
 
 Go code!
 */
-console.log('TEST')
-const express = require('express')
-const actionRouter = require('./data/action-router.js')
-const server = express()
-const port = 3000
-server.listen(port, () => console.log(`\n RUNNING ON ${port} SERVER \n`))
-server.use(express.json())
-server.use('/api/actions', actionRouter)
-server.get('/', (req,res) => {
-    res.send('Server is Available')})
+const server = require('./server');
+const chalk = require('chalk');
+
+const port = process.env.PORT || 8000;
+
+server.listen(port, () => {
+    console.log(`
+    ${chalk.green('*************************************')} 
+        Server listening on port: ${chalk.blue(port)} 
+    ${chalk.green('*************************************')}
+    `)
+
+    console.log(`   (⌐■_■)`)
+})

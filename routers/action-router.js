@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const Actions = require('./helpers/actionModel')
+const Actions = require('../data/helpers/actionModel')
 
 router.get('/', (req, res) => {
 
