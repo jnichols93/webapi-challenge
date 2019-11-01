@@ -26,14 +26,24 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Two parts of Express that I learned this week are middleware and routing.
+
 - [ ] Describe Middleware?
 
+middleware is a series of functions that manipulate access/inputs/interaction before interacting with the server directly. ie. "the gate keeper"
+
 - [ ] Describe a Resource?
+A resource is simply a file or data. The purpose of an API is to manage resources (CRUD and IO).
 
 - [ ] What can the API return to help clients know if a request was successful?
 
+HTTP status codes are a standardized set of numbers that tell the client if a request was successful, failed, redirected, etc. Status codes in the 200s indicate success.
+
+
 - [ ] How can we partition our application into sub-applications?
 
+We can use routing middleware (express.Router()) and module import/export to divide an API into different files/partitions based on url pathing
+With Routing, we can break up our application into smaller parts, making it easier to stay organized.
 ## Project Setup
 
 Follow these steps to set up and work on your project:
